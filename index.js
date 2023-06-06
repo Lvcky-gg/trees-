@@ -61,6 +61,7 @@ class BinarySearchTree {
    
         if(currentNode){
           this.inOrderTraversal(currentNode.left);
+          //do something
           console.log(currentNode.val);
           this.inOrderTraversal(currentNode.right)
         }
@@ -71,6 +72,7 @@ class BinarySearchTree {
       postOrderTraversal(currentNode = this.root) {
         if(currentNode.left) this.postOrderTraversal(currentNode.left);
        if(currentNode.right)this.postOrderTraversal(currentNode.right)
+       //do something
        console.log(currentNode.val);
       }
 
@@ -78,6 +80,7 @@ class BinarySearchTree {
         let que = [this.root];
         while(que.length){
          let el = que.shift();
+         //do something
          console.log(el.val)
          if(el.left)que.push(el.left);
          if(el.right)que.push(el.right);
@@ -88,6 +91,7 @@ class BinarySearchTree {
         let stack = [this.root]
         while (stack.length){
             let el = stack.pop()
+            //do something
             console.log(el.val)
             if(el.left)stack.push(el.left)
             if(el.right)stack.push(el.right)
