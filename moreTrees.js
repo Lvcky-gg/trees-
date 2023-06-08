@@ -12,7 +12,7 @@ class Node {
 class BST {
     constructor(val){
         this.root = new Node(val);
-        this.count = 0
+        this.count = 1
 
     }
 
@@ -82,21 +82,72 @@ class BST {
     
     //in-order
     inOrder(){
+        let res = []
+
+        const traverse = node => {
+            if(node.left)traverse(node.left)
+             res.push(node.val)
+            if(node.right)traverse(node.right)
+            
+        }
+
+        traverse(this.root)
+        return res
 
     }
     
     //pre-order
     preOrder(){
+        let res = []
+
+        const traverse = node => {
+            res.push(node.val)
+            if(node.left)traverse(node.left)
+            if(node.right)traverse(node.right)
+            
+        }
+
+        traverse(this.root)
+
+        return res
 
     }
     
      //post order
     postOrder(){
+        let res = []
+
+        const traverse = node => {
+            if(node.left)traverse(node.left)
+            if(node.right)traverse(node.right)
+            res.push(node.val)
+            
+        }
+        traverse(this.root)
+
+        return res
 
     }
     //breadthFirst level by level
     //queue
     breadthFirst(){
+        let res = []
+        let que = [this.root]
+
+        while(que.length){
+            let curr = que.shift()
+
+            res.push(curr)
+
+            if(curr.left){
+                que.push(curr.left)
+            }
+            if(curr.right){
+                que.push(curr.right)
+            }
+        }
+
+        return res
 
     }
    
@@ -112,6 +163,11 @@ bst.insert(20)
 bst.insert(0)
 bst.insert(0)
 bst.insert(-1)
+console.log(bst.size())
 console.log(bst.max())
 console.log(bst.min())
 console.log(bst.contains(202))
+console.log(bst.contains(2))
+console.log(bst.inOrder())
+console.log(bst.preOrder())
+console.log(bst.postOrder())
