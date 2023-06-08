@@ -137,7 +137,7 @@ class BST {
         while(que.length){
             let curr = que.shift()
 
-            res.push(curr)
+            res.push(curr.val)
 
             if(curr.left){
                 que.push(curr.left)
@@ -171,3 +171,4 @@ console.log(bst.contains(2))
 console.log(bst.inOrder())
 console.log(bst.preOrder())
 console.log(bst.postOrder())
+console.log(bst.breadthFirst())
