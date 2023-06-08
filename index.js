@@ -52,16 +52,18 @@ class BinarySearchTree {
         }
         return false
     }
-    preOrderTraversal(currentNode = this.root){
+    preOrderTraversal(currentNode = this.root,val){
         console.log(currentNode.val)
+
         if(currentNode.left) this.preOrderTraversal(currentNode.left)
         if(currentNode.right)this.preOrderTraversal(currentNode.right)
     }
-    inOrderTraversal(currentNode = this.root) {
+    inOrderTraversal(currentNode = this.root,val) {
    
         if(currentNode){
           this.inOrderTraversal(currentNode.left);
           //do something
+         
           console.log(currentNode.val);
           this.inOrderTraversal(currentNode.right)
         }
@@ -69,10 +71,11 @@ class BinarySearchTree {
       }
     
     
-      postOrderTraversal(currentNode = this.root) {
+      postOrderTraversal(currentNode = this.root,val) {
         if(currentNode.left) this.postOrderTraversal(currentNode.left);
        if(currentNode.right)this.postOrderTraversal(currentNode.right)
        //do something
+       
        console.log(currentNode.val);
       }
 
@@ -112,7 +115,7 @@ console.log('Falsey search:',bst.search(5))
 
 
 bst2 = new BinarySearchTree();
-bst2.insert(4);
+let val = bst2.insert(4);
 bst2.insert(2);
 bst2.insert(6);
 bst2.insert(1);
